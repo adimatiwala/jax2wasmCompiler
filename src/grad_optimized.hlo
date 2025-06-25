@@ -1,0 +1,18 @@
+HloModule jit_model, is_scheduled=true, entry_computation_layout={(f32[])->f32[]}, allow_spmd_sharding_propagation_to_parameters={true}, allow_spmd_sharding_propagation_to_output={true}
+
+%fused_computation (param_0.3: f32[]) -> f32[] {
+  %constant.1 = f32[] constant(1)
+  %param_0.3 = f32[] parameter(0)
+  %tanh.1 = f32[] tanh(%param_0.3), metadata={op_name="jit(model)/jit(main)/jit(model)/tanh" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  %divide.1 = f32[] divide(%constant.1, %tanh.1), metadata={op_name="jit(model)/jit(main)/jit(model)/div" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  %subtract.1 = f32[] subtract(%constant.1, %tanh.1), metadata={op_name="jit(model)/jit(main)/jit(model)/sub" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  %multiply.3 = f32[] multiply(%divide.1, %subtract.1), metadata={op_name="jit(model)/jit(main)/jit(model)/mul" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  %multiply.2 = f32[] multiply(%multiply.3, %tanh.1), metadata={op_name="jit(model)/jit(main)/jit(model)/mul" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  ROOT %add.1 = f32[] add(%multiply.3, %multiply.2), metadata={op_name="jit(model)/jit(main)/jit(model)/add_any" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+}
+
+ENTRY %main.12 (Arg_0.1: f32[]) -> f32[] {
+  %Arg_0.1 = f32[] parameter(0), metadata={op_name="x"}
+  ROOT %multiply_add_fusion = f32[] fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(model)/jit(main)/jit(model)/add_any" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+}
+
