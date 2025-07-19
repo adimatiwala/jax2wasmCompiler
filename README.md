@@ -72,3 +72,18 @@ You can use any WASM runtime or JS environment to load and test the generated `.
 
 ## License
 MIT
+
+## Demo
+
+To run a full demo of the pipeline:
+
+```sh
+./scripts/run_demo.sh
+```
+
+This will:
+- Generate HLO files from a built-in JAX demo function.
+- Compile them to WAT and WASM.
+- Output the results in the `target/` directory.
+
+You can inspect the generated `.wat` and `.wasm` files or run them in a WASM runtime.

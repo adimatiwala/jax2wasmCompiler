@@ -183,24 +183,20 @@
   )
     
   (func $main (export "main") (param $p0 f32) (param $p1 f32) (result f32)
+    (local $sine.1 f32)
     (local $constant.1 f32)
-    (local $tanh.1 f32)
-    (local $divide.1 f32)
-    (local $subtract.1 f32)
-    (local $multiply.3 f32)
-    (local $multiply.2 f32)
+    (local $multiply.1 f32)
+    (local $cosine.1 f32)
     (local $ROOT %add.1 f32)
-    (local $ROOT %multiply_add_fusion f32)
-    (f32.store (i32.const 2176) (local.get $p0))
-    (f32.store (i32.const 2064) (local.get $p1))
-    (local.set $constant.1 (f32.const 0.0)) ;; TODO: Implement constant(1)
-    (local.set $tanh.1 (f32.const 0.0)) ;; TODO: Implement tanh(%param_0.3),
-    (local.set $divide.1 (f32.const 0.0)) ;; TODO: Implement divide(%constant.1,
-    (local.set $subtract.1 (f32.const 0.0)) ;; TODO: Implement subtract(%constant.1,
-    (local.set $multiply.3 (f32.const 0.0)) ;; TODO: Implement multiply(%divide.1,
-    (local.set $multiply.2 (f32.const 0.0)) ;; TODO: Implement multiply(%multiply.3,
-    (local.set $ROOT %add.1 (f32.const 0.0)) ;; TODO: Implement add(%multiply.3,
-    (local.set $ROOT %multiply_add_fusion (f32.const 0.0)) ;; TODO: Implement fusion(%Arg_0.1),
-    (local.get $ROOT %multiply_add_fusion)
+    (local $ROOT %cosine_add_fusion f32)
+    (f32.store (i32.const 2144) (local.get $p0))
+    (f32.store (i32.const 2048) (local.get $p1))
+    (local.set $sine.1 (f32.const 0.0)) ;; TODO: Implement sine(%param_0.1),
+    (local.set $constant.1 (f32.const 0.0)) ;; TODO: Implement constant(-1)
+    (local.set $multiply.1 (f32.const 0.0)) ;; TODO: Implement multiply(%sine.1,
+    (local.set $cosine.1 (f32.const 0.0)) ;; TODO: Implement cosine(%param_0.1),
+    (local.set $ROOT %add.1 (f32.const 0.0)) ;; TODO: Implement add(%multiply.1,
+    (local.set $ROOT %cosine_add_fusion (f32.const 0.0)) ;; TODO: Implement fusion(%Arg_0.1),
+    (local.get $ROOT %cosine_add_fusion)
   )
 )
