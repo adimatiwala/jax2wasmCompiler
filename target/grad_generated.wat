@@ -1,0 +1,10 @@
+(module
+  (memory (export "memory") 1)
+  (func $main (export "main")  (result f32)
+    (local $constant.1 f32)
+    (local.set $constant.1 (unimplemented "constant(1)"))
+    (local $param_0.3 f32)
+    (local.set $param_0.3 (unimplemented "parameter(0)"))
+    (local.get $param_0.3)
+  )
+)

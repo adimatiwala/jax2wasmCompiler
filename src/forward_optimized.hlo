@@ -2,12 +2,12 @@ HloModule jit_model, is_scheduled=true, entry_computation_layout={(f32[])->f32[]
 
 %fused_computation (param_0.1: f32[]) -> f32[] {
   %param_0.1 = f32[] parameter(0)
-  %tanh.1 = f32[] tanh(%param_0.1), metadata={op_name="jit(model)/jit(main)/jit(model)/tanh" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
-  ROOT %log.1 = f32[] log(%tanh.1), metadata={op_name="jit(model)/jit(main)/jit(model)/log" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  %tanh.1 = f32[] tanh(%param_0.1), metadata={op_name="jit(model)/jit(main)/jit(model)/tanh" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=36}
+  ROOT %log.1 = f32[] log(%tanh.1), metadata={op_name="jit(model)/jit(main)/jit(model)/log" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=36}
 }
 
 ENTRY %main.7 (Arg_0.1: f32[]) -> f32[] {
   %Arg_0.1 = f32[] parameter(0), metadata={op_name="x"}
-  ROOT %tanh_log_fusion = f32[] fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(model)/jit(main)/jit(model)/log" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=34}
+  ROOT %tanh_log_fusion = f32[] fusion(%Arg_0.1), kind=kLoop, calls=%fused_computation, metadata={op_name="jit(model)/jit(main)/jit(model)/log" source_file="/Users/adityamatiwala/github/jax2wasmCompiler/src/jax2hlo.py" source_line=36}
 }
 
