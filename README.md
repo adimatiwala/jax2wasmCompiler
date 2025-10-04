@@ -24,16 +24,16 @@ All Rust dependencies are managed via Cargo. The project uses the [`wat`](https:
 
 ## Setup
 1. **Clone the repository:**
-   ```sh
+```sh
 git clone <repo-url>
 cd jax2wasmCompiler
 ```
 2. **Install Python dependencies:**
-   ```sh
+```sh
 pip install -r requirements.txt
 ```
 3. **Build Rust project:**
-   ```sh
+```sh
 cargo build --release
 ```
 
